@@ -9,6 +9,9 @@ import { BrandComponent } from './components/brand/brand.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
+import { FormsModule } from '@angular/forms';
+import { CarimageComponent } from './components/carimage/carimage.component';
+
 
 @NgModule({
   declarations: [
@@ -18,12 +21,14 @@ import { CustomerComponent } from './components/customer/customer.component';
     BrandComponent,
     RentalComponent,
     ColorComponent,
-    CustomerComponent
+    CustomerComponent,
+    CarimageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
