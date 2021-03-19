@@ -13,6 +13,7 @@ export class CarComponent implements OnInit {
 
   cars:Car[] = [ ];
   carDetails: CarDetail[] = [];
+  brandCarText = "";
   dataLoaded = false;
 
 

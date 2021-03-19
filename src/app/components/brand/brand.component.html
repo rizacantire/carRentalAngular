@@ -1,14 +1,16 @@
 <ul class="list-group">
-  <h3 class="align-items-center">Markalar</h3>
+  <h5 class="align-items-center"><label for="brandFilterText" class="form-label">Markalar</label></h5>
+
+  <input [(ngModel)]="brandFilterText" type="text" class="form-control" id="brandFilterText" placeholder="ara">
+  <span *ngIf="brandFilterText.length>2">
+    {{brandFilterText}} aradınız
+  </span>
+
 
   <li (click)="clearCurrentBrand()" routerLink ="cars" [class]="getAllBrandsClass()">Tüm markalar</li>
   <li (click)="setCurrentBrand(brand)"
   routerLink = "/cars/brand/{{brand.id}}"
-  [class]="getCurrentBrandClass(brand)"  *ngFor="let brand of brands">
+  [class]="getCurrentBrandClass(brand)"  *ngFor="let brand of brands | brandFilterPipe:brandFilterText">
     {{brand.name}}
   </li>
 </ul>
-<h6 *ngIf="currentBrand">
-  {{currentBrand.name}} seçtiniz
-</h6>
-

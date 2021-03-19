@@ -1,8 +1,13 @@
 <div *ngIf="dataLoaded == false" class="spinner-border text-danger d-flex mx-auto" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
+<h5 class="align-items-center"><label for="brandFilterText" class="form-label">Araçlar</label></h5>
 
-<h5>Araçlar</h5>
+  <input [(ngModel)]="brandCarText" type="text" class="form-control" id="brandCarText" placeholder="Arabalarda arama yapabilirsiniz">
+  <span *ngIf="brandCarText.length>2">
+    {{brandCarText}} aradınız
+  </span>
+
 
 <table *ngIf="dataLoaded == true" class="table table-bordered table-condensed table-hover">
 
@@ -16,7 +21,7 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let car of cars" routerLink="/cardetail/{{car.carId}}">
+    <tr *ngFor="let car of cars | carFilterPipe:brandCarText" routerLink="/cardetail/{{car.carId}}">
       <td>{{ car.brandName }}</td>
       <td>{{ car.colorName }}</td>
       <td>{{ car.dailyPrice }} TL</td>

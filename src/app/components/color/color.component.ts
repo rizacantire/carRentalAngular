@@ -12,6 +12,7 @@ export class ColorComponent implements OnInit {
 
   colors:Color[] = [ ];
   currentColor : Color | null;
+  colorCarText : "";
 
 
   constructor(private colorService:ColorService) { }
@@ -32,7 +33,9 @@ export class ColorComponent implements OnInit {
 
   getCurrentColorClass(color:Color){
 
+
     if(color == this.currentColor){
+      this.colorCarText = "";
       return "list-group-item active"
     }
     else{
@@ -40,9 +43,21 @@ export class ColorComponent implements OnInit {
     }
 
   }
+  getAllColorsClass(){
+
+    if(!this.currentColor){
+      this.colorCarText = "";
+      return "list-group-item active"
+    }
+    else{
+      return "list-group-item"
+    }
+  }
 
   clearColorClass(){
+
     this.currentColor = null;
   }
+
 
 }
