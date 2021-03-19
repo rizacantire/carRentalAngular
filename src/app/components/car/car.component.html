@@ -1,22 +1,31 @@
-<table class="table">
-  <thead>
+<div *ngIf="dataLoaded == false" class="spinner-border text-danger d-flex mx-auto" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+
+<h5>Araçlar</h5>
+
+<table *ngIf="dataLoaded == true" class="table table-bordered table-condensed table-hover">
+
+  <thead class="thead-light">
     <tr>
-      <th>Araba İsmi</th>
-      <th>Marka</th>
-      <th>Renk</th>
-      <th>Günlük ücret</th>
+      <th scope="col">Marka</th>
+      <th scope="col">Renk</th>
+      <th scope="col">Fiyat</th>
+      <th scope="col">Tanımlama</th>
     </tr>
   </thead>
-  <tr *ngFor="let car of cars">
-    <td>
-      {{car.carName}}
-    </td>
-    <td>
-      {{car.brandName}}
-    </td>
-    <td>{{car.colorName}}</td>
 
-    <td>{{car.dailyPrice}}</td>
+  <tbody>
+    <tr *ngFor="let car of cars" routerLink="/cardetail/{{car.carId}}">
+      <td>{{ car.brandName }}</td>
+      <td>{{ car.colorName }}</td>
+      <td>{{ car.dailyPrice }} TL</td>
+      <td>{{ car.description }}</td>
+    </tr>
 
-  </tr>
+    <tr *ngIf="!cars.length">
+      <td colspan="6">KAYITLI ARAÇ YOK</td>
+    </tr>
+  </tbody>
+
 </table>

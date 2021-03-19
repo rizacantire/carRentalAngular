@@ -11,7 +11,7 @@ import { ColorService } from 'src/app/services/color.service';
 export class ColorComponent implements OnInit {
 
   colors:Color[] = [ ];
-  currentColor : Color;
+  currentColor : Color | null;
 
 
   constructor(private colorService:ColorService) { }
@@ -31,12 +31,18 @@ export class ColorComponent implements OnInit {
   }
 
   getCurrentColorClass(color:Color){
+
     if(color == this.currentColor){
       return "list-group-item active"
-    }else{
+    }
+    else{
       return "list-group-item"
     }
 
+  }
+
+  clearColorClass(){
+    this.currentColor = null;
   }
 
 }
