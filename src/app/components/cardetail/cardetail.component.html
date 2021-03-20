@@ -49,6 +49,12 @@
       </ul>
 
       <div class="card-body">
+        <div class="d-grid gap-2 mb-2" *ngIf="carDetail.car.status == true">
+          <app-rental [car]="carDetail.car"></app-rental>
+      </div>
+      <div class="d-grid gap-2 mb-2" *ngIf="carDetail.car.status == false">
+          <div class="alert alert-danger">Araç şuan kiralanamaz</div>
+      </div>
         <button type="button" class="btn btn-primary">Kirala</button>
       </div>
     </div>
