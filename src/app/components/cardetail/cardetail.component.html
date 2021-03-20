@@ -29,7 +29,6 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
-
   </div>
   <div class="col-md-4">
     <div *ngFor="let cardetail of carDetails" class="card">
@@ -39,7 +38,6 @@
         </h5>
         <p class="card-text">{{ cardetail.description }}</p>
       </div>
-
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Marka : {{ cardetail.brandName }}</li>
         <li class="list-group-item">Renk : {{ cardetail.colorName }}</li>
@@ -47,14 +45,7 @@
           Günlük Ücret : {{ cardetail.dailyPrice }} TL
         </li>
       </ul>
-
       <div class="card-body">
-        <div class="d-grid gap-2 mb-2" *ngIf="carDetail.car.status == true">
-          <app-rental [car]="carDetail.car"></app-rental>
-      </div>
-      <div class="d-grid gap-2 mb-2" *ngIf="carDetail.car.status == false">
-          <div class="alert alert-danger">Araç şuan kiralanamaz</div>
-      </div>
         <button type="button" class="btn btn-primary">Kirala</button>
       </div>
     </div>

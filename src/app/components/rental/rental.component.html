@@ -1,13 +1,16 @@
-<table class="table">
-  <thead>
+<table class="table table-bordered table-condensed table-hover ">
+  <thead  class="thead-light">
 
     <tr>
       <th>Araba İsmi</th>
       <th>İsim</th>
       <th>Soyisim</th>
+      <th>Kiralanma Tarihi</th>
+      <th>Teslim Tarihi</th>
+      <th>Kirala</th>
     </tr>
   </thead>
-  <tr *ngFor="let rental of rentals">
+  <tr *ngFor="let rental of rentals" routerLink="/cardetail/{{rental.carId}}">
 
     <td>
       {{rental.brandName}}
@@ -15,6 +18,9 @@
     <td>{{rental.firstName}}</td>
 
     <td>{{rental.lastName}}</td>
+    <td>{{rental.rentDate}}</td>
+    <td>{{rental.returnDate}}</td>
+    <td *ngIf="rental.returnDate" (click)="setCurrentBrand(rental)" routerLink = "/paydetail/{{rental.carId}}"><button type="button" class="btn btn-primary btn-sm">Kirala</button></td>
 
   </tr>
 </table>
