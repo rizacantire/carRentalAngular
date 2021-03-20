@@ -32,15 +32,23 @@ export class CarsectionComponent implements OnInit {
    });
   }
   getSelectedBrand(brandId: Number) {
-    if (this.brandFilter == brandId)
+
+    if (this.brandFilter == brandId){
+
       return true;
-    else
+    }
+    else{
       return false;
+    }
+
   }
   getSelectedColor(colorId: Number) {
-    if (this.colorFilter == colorId)
-      return true;
+
+    if (this.colorFilter == colorId){
+
+      return true;}
     else
+
       return false;
   }
 }
