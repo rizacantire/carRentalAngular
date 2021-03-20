@@ -1,12 +1,15 @@
 <div *ngIf="dataLoaded == false" class="spinner-border text-danger d-flex mx-auto" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>
-<h5 class="align-items-center"><label for="brandFilterText" class="form-label">Araçlar</label></h5>
-
+<h5 class="align-items-center"><label for="brandCarText" class="form-label">Araçlar</label></h5>
+<div class="form">
+  <app-carsection></app-carsection>
+</div>
   <input [(ngModel)]="brandCarText" type="text" class="form-control" id="brandCarText" placeholder="Arabalarda arama yapabilirsiniz">
   <span *ngIf="brandCarText.length>2">
     {{brandCarText}} aradınız
   </span>
+
 
 
 <table *ngIf="dataLoaded == true" class="table table-bordered table-condensed table-hover">
@@ -26,6 +29,7 @@
       <td>{{ car.colorName }}</td>
       <td>{{ car.dailyPrice }} TL</td>
       <td>{{ car.description }}</td>
+
     </tr>
 
     <tr *ngIf="!cars.length">

@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,12 +16,12 @@ import { BrandComponent } from './components/brand/brand.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { ColorComponent } from './components/color/color.component';
 import { CustomerComponent } from './components/customer/customer.component';
-import { FormsModule } from '@angular/forms';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrandFilterPipePipe } from './pipes/brand-filter-pipe.pipe';
 import { CarFilterPipePipe } from './pipes/car-filter-pipe.pipe';
 import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
+import { CarsectionComponent } from './components/carsection/carsection.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -31,6 +37,7 @@ import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
     BrandFilterPipePipe,
     CarFilterPipePipe,
     ColorFilterPipePipe,
+    CarsectionComponent,
 
   ],
   imports: [
@@ -38,7 +45,11 @@ import { ColorFilterPipePipe } from './pipes/color-filter-pipe.pipe';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    CommonModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+
+
   ],
   providers: [],
   bootstrap: [AppComponent],
